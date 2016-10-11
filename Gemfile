@@ -45,9 +45,15 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'pg', '~> 0.18.3'
+  gem 'rails_12factor', '~> 0.0.3'
+  gem 'puma', '~> 2.14.0'
+end
+
 gem 'camaleon_cms'
 
 
-#################### Camaleon CMS include all gems for plugins and themes #################### 
-require './lib/plugin_routes' 
+#################### Camaleon CMS include all gems for plugins and themes ####################
+require './lib/plugin_routes'
 instance_eval(PluginRoutes.draw_gems)
