@@ -170,6 +170,17 @@ ActiveRecord::Schema.define(version: 20160609121449) do
   add_index "cama_users", ["site_id"], name: "index_cama_users_on_site_id"
   add_index "cama_users", ["username"], name: "index_cama_users_on_username"
 
+  create_table "plugins_attacks", force: :cascade do |t|
+    t.string   "path"
+    t.string   "browser_key"
+    t.integer  "site_id"
+    t.datetime "created_at"
+  end
+
+  add_index "plugins_attacks", ["browser_key"], name: "index_plugins_attacks_on_browser_key"
+  add_index "plugins_attacks", ["path"], name: "index_plugins_attacks_on_path"
+  add_index "plugins_attacks", ["site_id"], name: "index_plugins_attacks_on_site_id"
+
   create_table "plugins_contact_forms", force: :cascade do |t|
     t.integer  "site_id"
     t.integer  "count"
